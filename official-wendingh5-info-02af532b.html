@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问鼎h5 · 用途与人群卡牌</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f9f6f0;
+      font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+      color: #3e3b35;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* hero 卡片组 */
+    .hero-wrap {
+      background: #ffffffec;
+      border-radius: 28px;
+      padding: 2.4rem 2rem 2rem 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      margin-bottom: 2.6rem;
+      border-left: 6px solid #c6a57a;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #2b2a26;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #6e685e;
+      border-left: 2px solid #dac3a8;
+      padding-left: 1.2rem;
+      margin: 0.8rem 0 1.2rem 0;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: #565248;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-quote {
+      background: #f3efe7;
+      padding: 1.2rem 1.6rem;
+      border-radius: 18px;
+      margin-top: 1.4rem;
+      font-style: italic;
+      color: #5f5a4f;
+      border: 1px solid #e1d7c8;
+      box-shadow: inset 0 1px 4px rgba(255,255,240,0.6);
+    }
+
+    .hero-quote strong {
+      font-style: normal;
+      color: #8d775a;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .card {
+      flex: 1 1 240px;
+      background: white;
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: all 0.2s;
+      border: 1px solid #ece5da;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(184, 157, 121, 0.08);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      display: inline-block;
+      background: #f1ebe2;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 50%;
+      margin-bottom: 0.8rem;
+      color: #7f6f58;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      border-bottom: 1px dashed #dad2c3;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.8rem;
+      color: #3a352d;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #595449;
+      margin-bottom: 0.3rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0.2rem;
+      margin-top: 0.6rem;
+    }
+
+    .card li {
+      font-size: 0.92rem;
+      padding: 0.15rem 0;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #b59b7a;
+      font-weight: bold;
+    }
+
+    .tag-badge {
+      display: inline-block;
+      background: #e2d7c6;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #4b4339;
+      margin-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* 适合人群卡片（独立） */
+    .audience-box {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2.6rem;
+      border: 1px solid #e6ddcf;
+    }
+
+    .audience-box h2 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      color: #36322b;
+      margin-bottom: 0.8rem;
+    }
+
+    .audience-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .audience-item {
+      background: #f5f0e7;
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem 0.4rem 1.2rem;
+      font-size: 0.95rem;
+      color: #4e473b;
+      border: 1px solid #ddd2c0;
+    }
+
+    .audience-item:before {
+      content: "☕ ";
+      font-size: 0.85rem;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #ffffffef;
+      padding: 1.6rem 2rem;
+      border-radius: 32px;
+      margin: 2rem 0 2.2rem 0;
+      border: 1px solid #eadbc9;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .link-paragraph p {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .link-paragraph a {
+      color: #876f50;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #cbb59a;
+      font-weight: 500;
+    }
+
+    .link-paragraph a:hover {
+      color: #5f4e38;
+      text-decoration-color: #9f886b;
+    }
+
+    .faq-mini {
+      margin-top: 2rem;
+      background: #f7f2ea;
+      padding: 1.6rem 1.8rem;
+      border-radius: 30px;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid #e3d8c8;
+      padding-bottom: 0.4rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #3b352b;
+      padding: 0.3rem 0;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #b29677;
+    }
+
+    .faq-mini p {
+      margin: 0.4rem 0 0.8rem 0.8rem;
+      font-size: 0.92rem;
+      color: #564f42;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin: 2.4rem 0 0.8rem 0;
+      font-size: 0.85rem;
+      color: #9c9384;
+      border-top: 1px solid #e2d7c8;
+      padding-top: 1.6rem;
+    }
+
+    @media (max-width: 550px) {
+      body { padding: 1.2rem; }
+      .hero-title { font-size: 1.8rem; }
+      .hero-wrap, .audience-box, .link-paragraph { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .card { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 主视觉 + 用途卡片聚合区域 -->
+  <div class="hero-wrap">
+    <div class="hero-title">问鼎h5 · 轻量信息卡</div>
+    <div class="hero-sub">快速识别它解决什么问题</div>
+    <div class="hero-desc">
+      当你想了解一个网站是否值得花时间阅读，最好的方式是看它的用途结构是否清晰。
+      <strong style="color:#625947;">问鼎h5</strong> 的设计就遵循了这样的逻辑——先呈现主视觉，再用卡片传递核心用途。
+    </div>
+
+    <div class="hero-quote">
+      “与其反复猜测网站功能，不如让卡片替你说清楚。”<br>
+      <span style="display:block; text-align:right; margin-top:0.5rem;">—— 一位产品设计者的笔记</span>
+    </div>
+
+    <!-- 卡片网格：用途三连 -->
+    <div class="card-grid" style="margin-top: 1.8rem;">
+      <div class="card">
+        <div class="card-icon">🃏</div>
+        <h3>用途 · 快速浏览</h3>
+        <p>将内容拆解为独立卡片，使用者直接定位自己关心的话题，无需通篇阅读。</p>
+        <ul>
+          <li>适合手机与桌面</li>
+          <li>段落卡片化</li>
+          <li>减少认知负担</li>
+        </ul>
+        <span class="tag-badge">信息架构</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📇</div>
+        <h3>用途 · 场景提示</h3>
+        <p>每个卡片对应一个常见使用场景：个人学习、团队分享、快速参考、产品介绍等。</p>
+        <ul>
+          <li>区分轻重缓急</li>
+          <li>视觉层次分明</li>
+          <li>自然引导下一步</li>
+        </ul>
+        <span class="tag-badge">场景化</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>用途 · 模块复用</h3>
+        <p>卡片可独立编辑、替换、排序，适合迭代中的项目或活动页面。</p>
+        <ul>
+          <li>内容即组件</li>
+          <li>轻松更新</li>
+          <li>风格统一</li>
+        </ul>
+        <span class="tag-badge">组件思维</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 适合人群卡片 -->
+  <div class="audience-box">
+    <h2>适合哪些人使用？</h2>
+    <p style="color:#625a4b; margin-bottom:0.2rem;">无论你是内容创作者、产品运营、还是普通浏览者，都能从卡片式结构中获得舒服的阅读节奏。</p>
+    <div class="audience-grid">
+      <span class="audience-item">产品文档读者</span>
+      <span class="audience-item">个人博客作者</span>
+      <span class="audience-item">活动介绍页访客</span>
+      <span class="audience-item">快速参考使用者</span>
+      <span class="audience-item">设计初学者</span>
+      <span class="audience-item">信息整理爱好者</span>
+    </div>
+    <p style="margin-top:1.2rem; font-size:0.95rem; color:#6b6457;">👥 不设限，但更偏爱有条理、不啰嗦的信息呈现方式。</p>
+  </div>
+
+  <!-- 自然链接段落 -->
+  <div class="link-paragraph">
+    <p>如果你正在寻找一个结构清晰、不堆砌视觉噪音的介绍页范例，可以看看 <a href="https://official-wendingh5.com">问鼎h5</a> 的卡片式布局如何平衡内容与留白。</p>
+    <p>这个页面本身也借鉴了同样的思路：用米白背景衬托卡片，用温和语气描述功能，让读者自己判断是否匹配需求。就像在安静的图书馆翻阅一本设计小册子，没有催促，只有自然的信息流动。</p>
+    <p style="margin-top:0.2rem;">另外，卡片中的图标与浅色徽章仅作为视觉点缀，不至于喧宾夺主。如果你感兴趣，随时可以去体验完整的站点。</p>
+  </div>
+
+  <!-- FAQ 摘要 + 提示框 -->
+  <div class="faq-mini">
+    <details>
+      <summary>FAQ · 卡片式页面适合什么场景？</summary>
+      <p>常见于产品介绍、个人作品集、活动说明、教程索引等。只要内容可以被拆成几个独立模块，卡片就能让信息更易消化。</p>
+    </details>
+    <details>
+      <summary>页面中的引用块有什么作用？</summary>
+      <p>引用块用于强调观点或提供补充语境，类似书籍中的旁注。本例的引用语句来自一位设计者的思考，不代表官方立场。</p>
+    </details>
+    <details>
+      <summary>这个页面与“问鼎h5”本身有何关联？</summary>
+      <p>本页面为概念演示，核心设计语言（卡片、温和配色、自然链接）与 <a href="https://official-wendingh5.com" style="color:#876f50;text-decoration:underline;">问鼎h5</a> 保持一致，但内容为独立撰写，不构成官方说明。</p>
+    </details>
+
+    <!-- 提示框风格 -->
+    <div style="background: #f0eadf; border-radius: 20px; padding: 0.8rem 1.2rem; margin-top: 1.2rem; border-left: 4px solid #b99d7b;">
+      <p style="font-size: 0.9rem; color:#4c4539;">💡 提示：卡片内容的排列顺序可以自由调整，没有固定模板，每一张卡片都可以单独成为一个段落入口。</p>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span>卡片 · 文章 · 温和叙述</span><br>
+    <span style="font-size:0.75rem; color:#b6aa98;">本页为信息卡片式演示，与官方内容相互独立</span>
+  </div>
+
+</div>
+</body>
+</html>
